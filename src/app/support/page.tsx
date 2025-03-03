@@ -52,7 +52,7 @@ export default function Home() {
         <div className="text-center max-w-2xl">
           <a className="text-2xl block mb-2">Have found problems, bugs or just questions?</a>
           <p className="mb-4">
-            No problem! Contact us on Discord (bug report channel) or Github through Pull Requests. You can ask our members for help!
+            No problem! Contact us on Discord (bug report channel) or through Github Issues. You can ask our members for help!
           </p>
           <ul className="list-inside list-disc text-sm font-[family-name:var(--font-geist-mono)]">
             <li>Make sure to have logs and screenshots/video, if you submitting bug</li>
