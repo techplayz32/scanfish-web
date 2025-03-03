@@ -1,0 +1,237 @@
+/* Fixed FishText.module.css */
+.fishTextContainer {
+    position: relative;
+    display: inline-block;
+    overflow: hidden;
+    padding: 1rem;
+    border-radius: 10px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+  }
+  
+  .fishText {
+    position: relative;
+    font-size: 6rem;
+    font-weight: 900;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: rgba(255, 255, 255, 0.9);
+    text-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+    /* Changed from transparent to use a mask instead */
+    -webkit-mask-image: text;
+    mask-image: text;
+    z-index: 2;
+  }
+  
+  .waterBackground {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to bottom, #0A5D7C, #084863, #053D56);
+    z-index: 1;
+    overflow: hidden;
+  }
+  
+  .water {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 200%;
+    height: 100%;
+    /* Simplified gradient to avoid artifacts */
+    background: linear-gradient(
+      to bottom, 
+      transparent 50%, 
+      rgba(255, 255, 255, 0.1) 70%, 
+      rgba(255, 255, 255, 0.2) 90%
+    );
+    /*animation: waveAnimation 12s infinite linear;*/
+    transform: translateX(0);
+    z-index: 1;
+  }
+  
+  .water::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: -50%;
+    width: 100%;
+    height: 100%;
+    /* Simplified gradient to avoid artifacts */
+    background: linear-gradient(
+      to bottom, 
+      transparent 55%, 
+      rgba(255, 255, 255, 0.1) 75%, 
+      rgba(255, 255, 255, 0.15) 95%
+    );
+    /*animation: waveAnimation 8s infinite linear;*/
+    z-index: 1;
+  }
+  
+  .fishContainer {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 2;
+    pointer-events: none;
+    /* Changed to normal blend mode to avoid artifacts */
+    mix-blend-mode: normal;
+  }
+  
+  .fish1, .fish2, .fish3 {
+    position: absolute;
+    filter: drop-shadow(0 0 3px rgba(0, 0, 0, 0.2));
+  }
+  
+  .fish1 {
+    top: 30%;
+    left: 10%;
+    animation: swimFish1 15s infinite ease-in-out;
+  }
+  
+  .fish2 {
+    top: 60%;
+    left: 30%;
+    animation: swimFish2 18s infinite ease-in-out;
+  }
+  
+  .fish3 {
+    top: 40%;
+    left: 50%;
+    animation: swimFish3 12s infinite ease-in-out;
+  }
+  
+  /* Bubbles */
+  .bubble1, .bubble2, .bubble3, .bubble4, .bubble5 {
+    position: absolute;
+    background: radial-gradient(circle at 70% 70%, rgba(255, 255, 255, 0.8), rgba(255, 255, 255, 0.3));
+    border-radius: 50%;
+    opacity: 0.5;
+    z-index: 2;
+  }
+  
+  .bubble1 {
+    width: 10px;
+    height: 10px;
+    left: 30%;
+    bottom: 0;
+    animation: bubbleRise 8s infinite linear;
+  }
+  
+  .bubble2 {
+    width: 15px;
+    height: 15px;
+    left: 50%;
+    bottom: 0;
+    animation: bubbleRise 10s infinite 2s linear;
+  }
+  
+  .bubble3 {
+    width: 8px;
+    height: 8px;
+    left: 40%;
+    bottom: 0;
+    animation: bubbleRise 7s infinite 1s linear;
+  }
+  
+  .bubble4 {
+    width: 12px;
+    height: 12px;
+    left: 65%;
+    bottom: 0;
+    animation: bubbleRise 9s infinite 3s linear;
+  }
+  
+  .bubble5 {
+    width: 6px;
+    height: 6px;
+    left: 25%;
+    bottom: 0;
+    animation: bubbleRise 6s infinite 4s linear;
+  }
+  
+  @keyframes waveAnimation {
+    0% {
+      transform: translateX(0);
+    }
+    100% {
+      transform: translateX(-50%);
+    }
+  }
+  
+  @keyframes swimFish1 {
+    0% {
+      transform: translate(0, 0) scaleX(1);
+    }
+    45% {
+      transform: translate(300%, 50px) scaleX(1);
+    }
+    50% {
+      transform: translate(300%, 50px) scaleX(-1);
+    }
+    95% {
+      transform: translate(0, 0) scaleX(-1);
+    }
+    100% {
+      transform: translate(0, 0) scaleX(1);
+    }
+  }
+  
+  @keyframes swimFish2 {
+    0% {
+      transform: translate(0, 0) scaleX(-1);
+    }
+    45% {
+      transform: translate(-200%, -30px) scaleX(-1);
+    }
+    50% {
+      transform: translate(-200%, -30px) scaleX(1);
+    }
+    95% {
+      transform: translate(0, 0) scaleX(1);
+    }
+    100% {
+      transform: translate(0, 0) scaleX(-1);
+    }
+  }
+  
+  @keyframes swimFish3 {
+    0% {
+      transform: translate(0, 0) scaleX(1) rotate(5deg);
+    }
+    25% {
+      transform: translate(150%, 40px) scaleX(1) rotate(-3deg);
+    }
+    50% {
+      transform: translate(250%, 0) scaleX(1) rotate(5deg);
+    }
+    55% {
+      transform: translate(250%, 0) scaleX(-1) rotate(5deg);
+    }
+    75% {
+      transform: translate(150%, -40px) scaleX(-1) rotate(-3deg);
+    }
+    100% {
+      transform: translate(0, 0) scaleX(1) rotate(5deg);
+    }
+  }
+  
+  @keyframes bubbleRise {
+    0% {
+      transform: translateY(0) scale(0.5);
+      opacity: 0;
+    }
+    20% {
+      opacity: 0.6;
+    }
+    80% {
+      opacity: 0.6;
+    }
+    100% {
+      transform: translateY(-300px) scale(1.2);
+      opacity: 0;
+    }
+  }

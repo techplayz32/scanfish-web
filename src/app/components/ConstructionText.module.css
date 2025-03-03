@@ -1,0 +1,124 @@
+.constructionTextContainer {
+    position: relative;
+    display: inline-block;
+    overflow: hidden;
+    padding: 1rem;
+    border-radius: 10px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+}
+
+.constructionText {
+    position: relative;
+    font-size: 6rem;
+    font-weight: 900;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: rgba(255, 255, 255, 0.9);
+    text-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+    -webkit-mask-image: text;
+    mask-image: text;
+    z-index: 2;
+}
+
+.constructionBackground {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to bottom, #F5A623, #E67E22, #D35400);
+    z-index: 1;
+    overflow: hidden;
+}
+
+.constructionStripes {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 200%;
+    height: 100%;
+    background: repeating-linear-gradient(
+            45deg,
+            rgba(0, 0, 0, 0.1),
+            rgba(0, 0, 0, 0.1) 10px,
+            rgba(255, 255, 0, 0.1) 10px,
+            rgba(255, 255, 0, 0.1) 20px
+    );
+    animation: moveStripes 20s infinite linear;
+    z-index: 1;
+}
+
+/* Dust particles */
+.dust1, .dust2, .dust3, .dust4, .dust5 {
+    position: absolute;
+    background: radial-gradient(circle at 70% 70%, rgba(255, 255, 255, 0.8), rgba(255, 255, 255, 0.3));
+    border-radius: 50%;
+    opacity: 0.4;
+    z-index: 2;
+}
+
+.dust1 {
+    width: 8px;
+    height: 8px;
+    left: 30%;
+    bottom: 20%;
+    animation: dustFloat 5s infinite linear;
+}
+
+.dust2 {
+    width: 12px;
+    height: 12px;
+    left: 50%;
+    bottom: 15%;
+    animation: dustFloat 7s infinite 1s linear;
+}
+
+.dust3 {
+    width: 6px;
+    height: 6px;
+    left: 40%;
+    bottom: 25%;
+    animation: dustFloat 4s infinite 2s linear;
+}
+
+.dust4 {
+    width: 10px;
+    height: 10px;
+    left: 65%;
+    bottom: 18%;
+    animation: dustFloat 6s infinite 1.5s linear;
+}
+
+.dust5 {
+    width: 5px;
+    height: 5px;
+    left: 25%;
+    bottom: 22%;
+    animation: dustFloat 3s infinite 0.5s linear;
+}
+
+@keyframes moveStripes {
+    0% {
+        transform: translateX(0);
+    }
+    100% {
+        transform: translateX(-50%);
+    }
+}
+
+@keyframes dustFloat {
+    0% {
+        transform: translate(0, 0);
+        opacity: 0;
+    }
+    20% {
+        opacity: 0.4;
+    }
+    80% {
+        opacity: 0.4;
+    }
+    100% {
+        transform: translate(10px, -50px);
+        opacity: 0;
+    }
+}
